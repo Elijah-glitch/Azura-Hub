@@ -1,21 +1,13 @@
-# Azura-Hub
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=Azura+Hub+Best+Utility+For+Roblox!&font=Fira%20Code&center=true&width=420&height=50">
-</p>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?color=2276F7&lines=Introducing%2C+Azura+Hub!;A+free+mixin-based+injection+hub" alt="Typing SVG" /></a>
+ </p>
 
-<p align="center">
-  <a href="[https://discord.gg/U7SDSjQgJu](https://discord.gg/U7SDSjQgJu)" alt="Discord" title="Discord Server Project">
-    <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
-</p>
-
-**Azura Hub is a very sophisticated hub with an easily obtained key**
-**At the moment, Azura Hub Supports Such Modes as**
+**Azura Hub - A free mixin-based injection hub for Roblox, using Lua-based library. And also with getting the key, there will be no problems!**
+**At the moment, Azura Hub Supports Such places as**
 ```lua
-- Horrific Hausing
-Coming Soon...
+- Horrific Housing
++ More games for Roblox using the library lua, add more here, we have just started developing this hub, and do not know the future.
 ```
-
-**Also loadstring To use it in Exploits**
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azura-Hub/main/mainKey.lua"))()
 ```
@@ -25,6 +17,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azur
 
 ## ✔ Compatibility
 Azura Hub is compatible with the following:
-* Synapse X (Chat included)
-* Scriptware Windows (Chat included)
-* Krnl (Chat included)
+* Synapse X
+* Script-Ware Windows
+* Krnl
