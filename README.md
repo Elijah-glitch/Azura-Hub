@@ -1,4 +1,2 @@
 # Azura-Hub
-coming out soon
-
-![Progress](https://progress-bar.dev/46/?title=completed)
+![Progress](https://progress-bar.dev/99/?title=completed)
