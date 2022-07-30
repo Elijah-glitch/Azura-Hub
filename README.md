@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="[https://discord.gg/fPrdqh3Zfu](https://discord.gg/U7SDSjQgJu)" alt="Discord" title="Discord Server Project">
+  <a href="[https://discord.gg/U7SDSjQgJu](https://discord.gg/U7SDSjQgJu)" alt="Discord" title="Discord Server Project">
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
 </p>
 
