@@ -10,5 +10,8 @@ Coming Soon...
 
 **Also loadstring To use it in Exploits**
 ```lua
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azura-Hub/main/mainKey.lua"))()
 ```
+
+> **If You Have Any Problems with Azura Hub** -
+> Then write to technical support in our [discord server]()
