@@ -1,4 +1,8 @@
 # Azura-Hub
+<p align="center">
+  <a href="https://discord.gg/fPrdqh3Zfu" alt="Discord" title="Dev Pro Tips Discussion & Support Server">
+    <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
+</p>
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Azura+Hub+Best+Utility+For+Roblox)](https://git.io/typing-svg)
 
 **Azura Hub is a very sophisticated hub with an easily obtained key**
