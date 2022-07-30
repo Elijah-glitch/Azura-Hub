@@ -14,4 +14,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azur
 ```
 
 > **If You Have Any Problems with Azura Hub** -
-> Then write to technical support in our [discord server]()
+> Then write to technical support in our [discord server](https://discord.gg/U7SDSjQgJu)
+
+## ✔ Compatibility
+Azura Hub is compatible with the following:
+* Synapse X (Chat included)
+* Scriptware Windows (Chat included)
+* Krnl (Chat included)
