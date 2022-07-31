@@ -6,6 +6,9 @@
 **At the moment, Azura Hub Supports Such places as**
 ```lua
 - Horrific Housing
+- Tower Of Hell
+- Mining Sim 2
+- Lucky Block Battlegrounds
 + More games for Roblox using the library lua, add more here, we have just started developing this hub, and do not know the future.
 ```
 ```lua
