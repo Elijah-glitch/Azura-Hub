@@ -9,6 +9,9 @@
 - Tower Of Hell
 - Mining Sim 2
 - Lucky Block Battlegrounds
+- Work At Pizza Place
+- Commbat Warriors
+_ Kat
 + More games for Roblox using the library lua, add more here, we have just started developing this hub, and do not know the future.
 ```
 ```lua
