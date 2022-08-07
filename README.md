@@ -5,6 +5,8 @@
 **Azura Hub - A free mixin-based injection hub for Roblox, using Lua-based library. And also with getting the key, there will be no problems!**
 **At the moment, Azura Hub Supports Such places as**
 ```lua
+- Arsenal (does not work on the Krnl and some exploits / не работает на крнле и некоторый эксплойтах)
+- Breaking Point
 - Horrific Housing
 - Tower Of Hell
 - Mining Sim 2
