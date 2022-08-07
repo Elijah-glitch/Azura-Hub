@@ -27,4 +27,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azur
 Azura Hub is compatible with the following:
 * Synapse X
 * Script-Ware Windows
-* Krnl
+* Krnl (50/50)
