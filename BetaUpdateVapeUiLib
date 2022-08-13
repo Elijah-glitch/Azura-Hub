@@ -6,6 +6,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local PresetColor = Color3.fromRGB(44, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
+local SectionPreset = game:GetObjects("rbxassetid://7121846230")[1]
 
 local ui = Instance.new("ScreenGui")
 ui.Name = "ui"
