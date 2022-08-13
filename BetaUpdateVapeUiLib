@@ -752,13 +752,13 @@ function lib:Window(text, preset, closebind)
                 SlideFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
                 SlideFrame.BorderSizePixel = 0
                 SlideFrame.Position = UDim2.new(0.0342647657, 0, 0.686091602, 0)
-                SlideFrame.Size = UDim2.new(0, 335, 0, 3)
+                SlideFrame.Size = UDim2.new(0, 335, 0, 5)
 
                 CurrentValueFrame.Name = "CurrentValueFrame"
                 CurrentValueFrame.Parent = SlideFrame
                 CurrentValueFrame.BackgroundColor3 = PresetColor
                 CurrentValueFrame.BorderSizePixel = 0
-                CurrentValueFrame.Size = UDim2.new((start or 0) / max, 0, 0, 3)
+                CurrentValueFrame.Size = UDim2.new((start or 0) / max, 0, 0, 5)
 
                 coroutine.wrap(
                     function()
