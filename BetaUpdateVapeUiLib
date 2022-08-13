@@ -799,7 +799,7 @@ function lib:Window(text, preset, closebind)
                 game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
                         input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end
                 end)
-                SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
+                SlideCircle:TweenPosition(XSize, "Out", "Sine", 0.1, true)
                 SlideCircle.InputBegan:Connect(
                     function(input)
                         if input.UserInputType == Enum.UserInputType.MouseButton1 then
