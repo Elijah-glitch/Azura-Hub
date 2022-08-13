@@ -1784,12 +1784,10 @@ function lib:Window(text, preset, closebind)
 
                 Bind:Set(preset)
             end
-
-            return tabhold
         end
-
         return SectionHold
     end
+    return tabhold
 end
 
 return lib
