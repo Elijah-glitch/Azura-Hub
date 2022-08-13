@@ -430,11 +430,12 @@ function lib:Window(text, preset, closebind)
             local Section = SectionPreset:Clone()
             Section.Parent = Tab
             Section.SectionTitle.Text = text
+            Section.SectionTitle.TextColor3 = Color3.fromRGB(155, 155, 155)
 
             spawn(function()
                 while wait() do
-                    Section.SectionTitle.TextColor3 = Color3.fromRGB(155, 155, 155)
                     Section.Size = UDim2.new(0.9, 0, 0, Section.UIListLayout.AbsoluteContentSize.Y)
+                    Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
                 end
             end)
 
@@ -795,7 +796,8 @@ function lib:Window(text, preset, closebind)
                 SlideFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
                 SlideFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
                 game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
-                    input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
+                        input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end
+                end)
                 SlideCircle.InputBegan:Connect(
                     function(input)
                         if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -1783,10 +1785,10 @@ function lib:Window(text, preset, closebind)
                 Bind:Set(preset)
             end
 
-            return SectionHold
+            return tabhold
         end
 
-        return tabhold
+        return SectionHold
     end
 end
 
