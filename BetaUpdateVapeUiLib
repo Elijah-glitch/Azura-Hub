@@ -781,16 +781,6 @@ function lib:Window(text, preset, closebind)
 				SlideFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
 				SlideFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
 				game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
-
-                function Slider:Set(val)
-                    local a = tostring(val and (val / max) * (max - min) + min) or 0
-					SliderValue.Text = tostring(a)
-                    CurrentValueFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
-                    Value = val
-					return callback(Value)
-				end	
-
-                Slider:Set(start)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
