@@ -438,8 +438,8 @@ function lib:Window(text, preset, closebind)
                     Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
                 end
             end)
-
-            function SectionHold:Button(text, callback)
+            local ItemHold = {}
+            function ItemHold:Button(text, callback)
                 local Button = Instance.new("TextButton")
                 local ButtonCorner = Instance.new("UICorner")
                 local ButtonTitle = Instance.new("TextLabel")
@@ -499,7 +499,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Toggle(text, default, callback)
+            function ItemHold:Toggle(text, default, callback)
                 local toggled = false
 
                 local Toggle = Instance.new("TextButton")
@@ -698,7 +698,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Slider(text, min, max, start, inc, callback)
+            function ItemHold:Slider(text, min, max, start, inc, callback)
                 local dragging = false
                 local Slider = Instance.new("TextButton")
                 local SliderCorner = Instance.new("UICorner")
@@ -832,7 +832,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Dropdown(text, list, callback)
+            function ItemHold:Dropdown(text, list, callback)
                 local droptog = false
                 local framesize = 0
                 local itemcount = 0
@@ -1009,7 +1009,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:MultiDropdown(text, list, def, flag, callback)
+            function ItemHold:MultiDropdown(text, list, def, flag, callback)
                 local Dropdown, DropMain, OptionPreset = { Value = {}, Toggled = false, Options = list },
                     game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
                 DropMain.Parent = Section
@@ -1099,7 +1099,7 @@ function lib:Window(text, preset, closebind)
                 return Dropdown
             end
 
-            function SectionHold:Colorpicker(text, preset, callback)
+            function ItemHold:Colorpicker(text, preset, callback)
                 local ColorPickerToggled = false
                 local OldToggleColor = Color3.fromRGB(0, 0, 0)
                 local OldColor = Color3.fromRGB(0, 0, 0)
@@ -1584,7 +1584,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Label(text)
+            function ItemHold:Label(text)
                 local Label = Instance.new("TextButton")
                 local LabelCorner = Instance.new("UICorner")
                 local LabelTitle = Instance.new("TextLabel")
@@ -1622,7 +1622,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Textbox(text, disapper, callback)
+            function ItemHold:Textbox(text, disapper, callback)
                 local Textbox = Instance.new("Frame")
                 local TextboxCorner = Instance.new("UICorner")
                 local TextboxTitle = Instance.new("TextLabel")
@@ -1687,7 +1687,7 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function SectionHold:Bind(text, preset, holdmode, callback)
+            function ItemHold:Bind(text, preset, holdmode, callback)
                 Binding = false
                 Holding = false
                 local Key = keypreset.Name
@@ -1784,6 +1784,7 @@ function lib:Window(text, preset, closebind)
 
                 Bind:Set(preset)
             end
+            return ItemHold
         end
         return SectionHold
     end
