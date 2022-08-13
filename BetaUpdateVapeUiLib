@@ -779,7 +779,6 @@ function lib:Window(text, preset, closebind)
                 )()
 
                 local function move(Input)
-                    local pos = UDim2.new(math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),-6,-1.30499995,0)
                     local XSize = math.clamp((Input.Position.X - CurrentValueFrame.AbsolutePosition.X) /
                     CurrentValueFrame.AbsoluteSize.X, 0, 1)
                     local Increment = inc and (max / ((max - min) / (inc * 4))) or
@@ -793,7 +792,7 @@ function lib:Window(text, preset, closebind)
                     CurrentValueFrame:TweenSize(XSize, "Out", "Sine", 0.1, true)
                     SliderValue.Text = tostring(Val)
                     callback(Slider.Value)
-                    SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
+                    SlideCircle:TweenPosition(XSize, "Out", "Sine", 0.1, true)
                 end
                 SlideCircle.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
                 SlideCircle.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
