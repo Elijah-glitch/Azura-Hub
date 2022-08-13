@@ -147,7 +147,7 @@ function lib:Window(text, preset, closebind)
                     Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
                     uitoggled = true
                     wait(.5)
-                    knixhub.Enabled = false
+                    Main.Visible = true
                 else
                     Main:TweenSize(
                         UDim2.new(0, 560, 0, 319),
@@ -156,7 +156,8 @@ function lib:Window(text, preset, closebind)
                         .6,
                         true
                     )
-                    knixhub.Enabled = true
+                    wait(.5)
+                    Main.Visible = false
                     uitoggled = false
                 end
             end
@@ -426,7 +427,7 @@ function lib:Window(text, preset, closebind)
         local SectionHold = {}
         function SectionHold:Section(text)
             local Section = SectionPreset:Clone()
-            Section.Parent = Section
+            Section.Parent = Tab
             Section.SectionTitle.Text = text
 
             spawn(function()
