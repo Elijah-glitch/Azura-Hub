@@ -1639,15 +1639,14 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function ItemHold:Bind(text, preset, holdmode, callback)
-                Binding = false
-                Holding = false
-                Key = preset
+            function ItemHold:Bind(text, keypreset, callback)
+                local binding = false
+                local Key = keypreset.Name
                 local Bind = Instance.new("TextButton")
                 local BindCorner = Instance.new("UICorner")
                 local BindTitle = Instance.new("TextLabel")
                 local BindText = Instance.new("TextLabel")
-
+    
                 Bind.Name = "Bind"
                 Bind.Parent = Section
                 Bind.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
@@ -1657,11 +1656,11 @@ function lib:Window(text, preset, closebind)
                 Bind.Text = ""
                 Bind.TextColor3 = Color3.fromRGB(0, 0, 0)
                 Bind.TextSize = 14.000
-
+    
                 BindCorner.CornerRadius = UDim.new(0, 5)
                 BindCorner.Name = "BindCorner"
                 BindCorner.Parent = Bind
-
+    
                 BindTitle.Name = "BindTitle"
                 BindTitle.Parent = Bind
                 BindTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1673,7 +1672,7 @@ function lib:Window(text, preset, closebind)
                 BindTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
                 BindTitle.TextSize = 14.000
                 BindTitle.TextXAlignment = Enum.TextXAlignment.Left
-
+    
                 BindText.Name = "BindText"
                 BindText.Parent = Bind
                 BindText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1681,51 +1680,37 @@ function lib:Window(text, preset, closebind)
                 BindText.Position = UDim2.new(0.0358126722, 0, 0, 0)
                 BindText.Size = UDim2.new(0, 337, 0, 42)
                 BindText.Font = Enum.Font.Gotham
-                BindText.Text = preset
+                BindText.Text = Key
                 BindText.TextColor3 = Color3.fromRGB(255, 255, 255)
                 BindText.TextSize = 14.000
                 BindText.TextXAlignment = Enum.TextXAlignment.Right
-
+    
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-
-                Bind.InputEnded:Connect(function(Input)
-                    if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if Bind.Binding then return end
-                        Bind.Binding = true
+    
+                Bind.MouseButton1Click:Connect(
+                    function()
                         BindText.Text = "..."
-                    end
-                end)
-
-                UserInputService.InputBegan:Connect(function(Input)
-                    if UserInputService:GetFocusedTextBox() then return end
-                    if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
-                        if holdmode then
-                            Holding = true
-                            callback(Holding)
+                        binding = true
+                        local inputwait = game:GetService("UserInputService").InputBegan:wait()
+                        if inputwait.KeyCode.Name ~= "Unknown" then
+                            BindText.Text = inputwait.KeyCode.Name
+                            Key = inputwait.KeyCode.Name
+                            binding = false
                         else
-                            callback()
-                        end
-                    elseif Bind.Binding then
-                        local Key
-                        pcall(function()
-                            Key = Input.UserInputType
-                        end)
-                        pcall(function()
-                            Key = Input.UserInputType
-                        end)
-                        Key = Key or Bind.Value
-                        Bind:Set(Key)
-                    end
-                end)
-
-                UserInputService.InputEnded:Connect(function(Input)
-                    if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value then
-                        if holdmode and Holding then
-                            Holding = false
-                            callback(Holding)
+                            binding = false
                         end
                     end
-                end)
+                )
+    
+                game:GetService("UserInputService").InputBegan:connect(
+                    function(current, pressed)
+                        if not pressed then
+                            if current.KeyCode.Name == Key and binding == false then
+                                pcall(callback)
+                            end
+                        end
+                    end
+                )
             end
             return ItemHold
         end
