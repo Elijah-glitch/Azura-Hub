@@ -744,6 +744,7 @@ function lib:Window(text, preset, closebind)
                 SliderValue.Font = Enum.Font.Gotham
                 SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
                 SliderValue.TextSize = 14.000
+                SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)
                 SliderValue.TextXAlignment = Enum.TextXAlignment.Right
 
                 SlideFrame.Name = "SlideFrame"
@@ -798,6 +799,7 @@ function lib:Window(text, preset, closebind)
                 game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
                         input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end
                 end)
+                SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
                 SlideCircle.InputBegan:Connect(
                     function(input)
                         if input.UserInputType == Enum.UserInputType.MouseButton1 then
