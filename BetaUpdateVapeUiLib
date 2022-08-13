@@ -744,6 +744,7 @@ function lib:Window(text, preset, closebind)
                 SliderValue.Font = Enum.Font.Gotham
                 SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
                 SliderValue.TextSize = 14.000
+                SliderValue.Text = start
                 SliderValue.TextXAlignment = Enum.TextXAlignment.Right
 
                 SlideFrame.Name = "SlideFrame"
@@ -758,15 +759,6 @@ function lib:Window(text, preset, closebind)
                 CurrentValueFrame.BackgroundColor3 = PresetColor
                 CurrentValueFrame.BorderSizePixel = 0
                 CurrentValueFrame.Size = UDim2.new((start or 0) / max, 0, 0, 3)
-
-                SlideCircle.Name = "SlideCircle"
-                SlideCircle.Parent = SlideFrame
-                SlideCircle.BackgroundColor3 = PresetColor
-                SlideCircle.BackgroundTransparency = 1.000
-                SlideCircle.Position = UDim2.new((start or 0) / max, -6, -1.30499995, 0)
-                SlideCircle.Size = UDim2.new(0, 11, 0, 11)
-                SlideCircle.Image = "rbxassetid://3570695787"
-                SlideCircle.ImageColor3 = PresetColor
 
                 coroutine.wrap(
                     function()
