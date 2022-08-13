@@ -779,13 +779,7 @@ function lib:Window(text, preset, closebind)
                 )()
 
                 local function move(Input)
-                    local pos =
-                        UDim2.new(
-                        math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
-                        -6,
-                        -1.30499995,
-                        0
-                    )
+                    local pos = UDim2.new(math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),-6,-1.30499995,0)
                     local XSize = math.clamp((Input.Position.X - CurrentValueFrame.AbsolutePosition.X) /
                     CurrentValueFrame.AbsoluteSize.X, 0, 1)
                     local Increment = inc and (max / ((max - min) / (inc * 4))) or
@@ -797,7 +791,6 @@ function lib:Window(text, preset, closebind)
                         , { Size = SizeRounded }):Play()
                     local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
                     SliderValue.Text = tostring(Val)
-                    Slider.Value = Val
                     callback(Slider.Value)
                     SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
                 end
