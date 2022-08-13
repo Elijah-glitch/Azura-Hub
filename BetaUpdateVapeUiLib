@@ -496,7 +496,12 @@ function lib:Window(text, preset, closebind)
                     end
                 )
 
+                function UpdBtn:UpdateButton(newTitle)
+                    ButtonTitle.Text = newTitle
+                end
+                
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+                return UpdBtn
             end
 
             function ItemHold:Toggle(text, default, callback)
@@ -696,6 +701,20 @@ function lib:Window(text, preset, closebind)
                 end
 
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+                function TogFunction:UpdateToggle(newText, isTogOn)
+                    isTogOn = isTogOn or toggle
+                    if newText ~= nil then 
+                        ToggleTitle.Text = newText
+                    end
+                    if isTogOn then
+                        toggled = true
+                        pcall(callback, toggled)
+                    else
+                        toggled = false
+                        pcall(callback, toggled)
+                    end
+                end
+                return TogFunction
             end
 
             function ItemHold:Slider(text, min, max, start, inc, callback)
@@ -782,6 +801,17 @@ function lib:Window(text, preset, closebind)
 				SlideFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
 				game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+
+                function Slider:Set(val)
+                    local a = tostring(val and (val / max) * (max - min) + min) or 0
+					SliderValue.Text = tostring(a)
+                    CurrentValueFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
+                    Value = val
+					return callback(Value)
+				end
+
+                Slider:Set(start)
+                return Slider
             end
 
             function ItemHold:Dropdown(text, list, callback)
@@ -1572,6 +1602,7 @@ function lib:Window(text, preset, closebind)
                 end
 
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+                return Label
             end
 
             function ItemHold:Textbox(text, disapper, callback)
