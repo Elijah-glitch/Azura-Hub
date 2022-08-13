@@ -1726,15 +1726,6 @@ function lib:Window(text, preset, closebind)
                         end
                     end
                 end)
-
-                function Bind:Set(key)
-                    self.Binding = false
-                    self.Value = key or self.Value
-                    self.Value = self.Value.Name or self.Value
-                    BindTitle.Text = self.Value
-                end
-
-                Bind:Set(preset)
             end
             return ItemHold
         end
