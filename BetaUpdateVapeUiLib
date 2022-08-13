@@ -700,13 +700,13 @@ function lib:Window(text, preset, closebind)
 
             function ItemHold:Slider(text, min, max, start, inc, callback)
                 local dragging = false
+                Value = start
                 local Slider = Instance.new("TextButton")
                 local SliderCorner = Instance.new("UICorner")
                 local SliderTitle = Instance.new("TextLabel")
                 local SliderValue = Instance.new("TextLabel")
                 local SlideFrame = Instance.new("Frame")
                 local CurrentValueFrame = Instance.new("Frame")
-                local SlideCircle = Instance.new("ImageButton")
 
                 Slider.Name = "Slider"
                 Slider.Parent = Section
@@ -744,7 +744,7 @@ function lib:Window(text, preset, closebind)
                 SliderValue.Font = Enum.Font.Gotham
                 SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
                 SliderValue.TextSize = 14.000
-                SliderValue.Text = start
+                SliderValue.Text = Value
                 SliderValue.TextXAlignment = Enum.TextXAlignment.Right
 
                 SlideFrame.Name = "SlideFrame"
@@ -764,7 +764,6 @@ function lib:Window(text, preset, closebind)
                     function()
                         while wait() do
                             CurrentValueFrame.BackgroundColor3 = PresetColor
-                            SlideCircle.ImageColor3 = PresetColor
                         end
                     end
                 )()
@@ -776,8 +775,8 @@ function lib:Window(text, preset, closebind)
                     TweenService:Create(CurrentValueFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
                     local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
                     SliderValue.Text = tostring(Val)
-                    Slider.Value = Val
-                    callback(Slider.Value)
+                    Value = Val
+                    callback(Value)
 				end
 				SlideFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
 				SlideFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
@@ -787,8 +786,8 @@ function lib:Window(text, preset, closebind)
                     local a = tostring(val and (val / max) * (max - min) + min) or 0
 					SliderValue.Text = tostring(a)
                     CurrentValueFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
-                    Slider.Value = val
-					return callback(Slider.Value)
+                    Value = val
+					return callback(Value)
 				end	
 
                 Slider:Set(start)
