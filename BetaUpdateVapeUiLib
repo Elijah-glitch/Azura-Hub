@@ -744,7 +744,6 @@ function lib:Window(text, preset, closebind)
                 SliderValue.Font = Enum.Font.Gotham
                 SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
                 SliderValue.TextSize = 14.000
-                SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)
                 SliderValue.TextXAlignment = Enum.TextXAlignment.Right
 
                 SlideFrame.Name = "SlideFrame"
