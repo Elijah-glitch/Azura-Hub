@@ -95,7 +95,6 @@ function lib:Window(text, preset, closebind)
     local Title = Instance.new("TextLabel")
     local TabFolder = Instance.new("Folder")
     local DragFrame = Instance.new("Frame")
-    local MainCorner = Instance.new("UICorner")
 
     Main.Name = "Main"
     Main.Parent = ui
@@ -106,8 +105,6 @@ function lib:Window(text, preset, closebind)
     Main.Size = UDim2.new(0, 0, 0, 0)
     Main.ClipsDescendants = true
     Main.Visible = true
-    Main.MainCorner = UDim.new(0, 5)
-	Main.Parent = Main
 
     TabHold.Name = "TabHold"
     TabHold.Parent = Main
