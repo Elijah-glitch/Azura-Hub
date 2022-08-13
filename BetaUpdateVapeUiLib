@@ -1642,7 +1642,7 @@ function lib:Window(text, preset, closebind)
             function ItemHold:Bind(text, preset, holdmode, callback)
                 Binding = false
                 Holding = false
-                local Key = keypreset.Name
+                local Key = keypreset
                 local Bind = Instance.new("TextButton")
                 local BindCorner = Instance.new("UICorner")
                 local BindTitle = Instance.new("TextLabel")
