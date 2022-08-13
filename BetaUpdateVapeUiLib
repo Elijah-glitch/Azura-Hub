@@ -794,8 +794,8 @@ function lib:Window(text, preset, closebind)
                     callback(Slider.Value)
                     SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
                 end
-                CurrentValueFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
-                CurrentValueFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
+                SlideCircle.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
+                SlideCircle.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
                 game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
                         input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end
                 end)
