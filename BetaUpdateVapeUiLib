@@ -106,7 +106,7 @@ function lib:Window(text, preset, closebind)
     Main.Size = UDim2.new(0, 0, 0, 0)
     Main.ClipsDescendants = true
     Main.Visible = true
-    Main.CornerRadius = UDim.new(0, 5)
+    CoreGui.ui.Main.CornerRadius = UDim.new(0, 5)
 	Main.Parent = Main
 
     TabHold.Name = "TabHold"
