@@ -811,15 +811,15 @@ function lib:Window(text, preset, closebind)
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
-                DropMain.Size = UDim2.new(0, 363, 0, 42)
+                DropMain.Size = UDim2.new(0, 363, 0, 38)
 
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
                     DropMain.Holder.Size = Dropdown.Toggled and
-                        UDim2.new(1, 0, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1, 0, 0, 0)
+                        UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 0)
                     TweenService:Create(DropMain, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Size = Dropdown.Toggled and UDim2.new(1, 0, 0, 38 +
-                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1, 0, 0, 32) }):Play()
+                        { Size = Dropdown.Toggled and UDim2.new(0, 363, 0, 38 +
+                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 32) }):Play()
                     TweenService:Create(DropMain.Btn.Ico,
                         TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
                         { Rotation = Dropdown.Toggled and 180 or 0 }):Play()
@@ -855,11 +855,11 @@ function lib:Window(text, preset, closebind)
                             if v:IsA "TextButton" then
                                 v:Destroy()
                                 DropMain.Holder.Size = Dropdown.Toggled and
-                                    UDim2.new(1, 0, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
-                                    UDim2.new(1, 0, 0, 0)
+                                    UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                    UDim2.new(0, 363, 0, 0)
                                 DropMain.Size = Dropdown.Toggled and
-                                    UDim2.new(1, 0, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
-                                    UDim2.new(1, 0, 0, 32)
+                                    UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                    UDim2.new(0, 363, 0, 32)
                             end
                         end
                     end
@@ -895,16 +895,16 @@ function lib:Window(text, preset, closebind)
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
-                DropMain.Size = UDim2.new(0, 363, 0, 42)
+                DropMain.Size = UDim2.new(0, 363, 0, 38)
 
 
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
                     DropMain.Holder.Size = Dropdown.Toggled and
-                        UDim2.new(1, 0, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1, 0, 0, 0)
+                        UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 0)
                     TweenService:Create(DropMain, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Size = Dropdown.Toggled and UDim2.new(1, 0, 0, 38 +
-                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1, 0, 0, 32) }):Play()
+                        { Size = Dropdown.Toggled and UDim2.new(0, 363, 0, 38 +
+                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 32) }):Play()
                     TweenService:Create(DropMain.Btn.Ico,
                         TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
                         { Rotation = Dropdown.Toggled and 180 or 0 }):Play()
@@ -946,11 +946,11 @@ function lib:Window(text, preset, closebind)
                             if v:IsA "TextButton" then
                                 v:Destroy()
                                 DropMain.Holder.Size = Dropdown.Toggled and
-                                    UDim2.new(1, 0, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
-                                    UDim2.new(1, 0, 0, 0)
+                                    UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                    UDim2.new(0, 363, 0, 0)
                                 DropMain.Size = Dropdown.Toggled and
-                                    UDim2.new(1, 0, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
-                                    UDim2.new(1, 0, 0, 32)
+                                    UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                    UDim2.new(0, 363, 0, 32)
                             end
                         end
                     end
