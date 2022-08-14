@@ -496,12 +496,12 @@ function lib:Window(text, preset, closebind)
                     end
                 )
 
-                function UpdBtn:UpdateButton(newTitle)
+                function Button:Set(newTitle)
                     ButtonTitle.Text = newTitle
                 end
                 
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-                return UpdBtn
+                return Button
             end
 
             function ItemHold:Toggle(text, default, callback)
@@ -701,7 +701,7 @@ function lib:Window(text, preset, closebind)
                 end
 
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-                function TogFunction:UpdateToggle(newText, isTogOn)
+                function Toggle:Set(newText, isTogOn)
                     isTogOn = isTogOn or toggle
                     if newText ~= nil then 
                         ToggleTitle.Text = newText
@@ -714,7 +714,7 @@ function lib:Window(text, preset, closebind)
                         pcall(callback, toggled)
                     end
                 end
-                return TogFunction
+                return Toggle
             end
 
             function ItemHold:Slider(text, min, max, start, inc, callback)
