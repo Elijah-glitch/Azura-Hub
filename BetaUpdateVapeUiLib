@@ -1568,7 +1568,7 @@ function lib:Window(text, preset, closebind)
                 BindFrame.Parent = Section
                 BindFrame.Title.Text = text
                 BindFrame.Name = text .. "element"
-                BindFrame.Size = UDim2.new(0, 363, 0, 42)
+                BindFrame.Size = UDim2.new(1, 0, 0, 42)
 
 
                 BindFrame.InputEnded:Connect(function(Input)
