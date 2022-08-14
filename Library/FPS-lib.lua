@@ -71,9 +71,6 @@ local DefaultSettings = {
         SilentAimRedirect = "Head",
         BlacklistedTeams = {}
     },
-    WindowPosition = UDim2.new(0.5, -200, 0.5, -139);
-
-    Version = 1.2
 }
 
 local EncodeConfig, DecodeConfig;
