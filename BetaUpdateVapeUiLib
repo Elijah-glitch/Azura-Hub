@@ -509,12 +509,7 @@ function lib:Window(text, preset, closebind)
                     end
                 )
 
-                function Button:Set(newTitle)
-                    ButtonTitle.Text = newTitle
-                end
-
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-                return Button
             end
 
             function ItemHold:Toggle(text, default, callback)
@@ -714,85 +709,6 @@ function lib:Window(text, preset, closebind)
                 end
 
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-                function Toggle:Set(newText, isTogOn)
-                    isTogOn = isTogOn or toggle
-                    if newText ~= nil then
-                        ToggleTitle.Text = newText
-                    end
-                    if isTogOn then
-                        toggled = true
-                        pcall(callback, toggled)
-                        TweenService:Create(
-                            Toggle,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(37, 37, 37) }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle1,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 1 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle2,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 1 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle3,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 0 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggleCircle,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
-                        ):Play()
-                        FrameToggleCircle:TweenPosition(
-                            UDim2.new(0.587, 0, 0.222000003, 0),
-                            Enum.EasingDirection.Out,
-                            Enum.EasingStyle.Quart,
-                            .2,
-                            true
-                        )
-                    else
-                        toggled = false
-                        pcall(callback, toggled)
-                        TweenService:Create(
-                            Toggle,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(34, 34, 34) }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle1,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 0 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle2,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 0 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggle3,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundTransparency = 1 }
-                        ):Play()
-                        TweenService:Create(
-                            FrameToggleCircle,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(50, 50, 50) }
-                        ):Play()
-                        FrameToggleCircle:TweenPosition(
-                            UDim2.new(0.127000004, 0, 0.222000003, 0),
-                            Enum.EasingDirection.Out,
-                            Enum.EasingStyle.Quart,
-                            .2,
-                            true
-                        )
-                    end
-                end
-
-                return Toggle
             end
 
             function ItemHold:Slider(text, min, max, start, inc, callback)
@@ -887,17 +803,6 @@ function lib:Window(text, preset, closebind)
                 game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
                     input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
-
-                function Slider:Set(val)
-                    local a = tostring(val and (val / max) * (max - min) + min) or 0
-                    SliderValue.Text = tostring(a)
-                    CurrentValueFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
-                    Value = val
-                    return callback(Value)
-                end
-
-                Slider:Set(start)
-                return Slider
             end
 
             function ItemHold:Dropdown(text, list, def, callback)
@@ -937,8 +842,8 @@ function lib:Window(text, preset, closebind)
 
                         spawn(function()
                             while wait() do
-                                Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
-                                DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+                                Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                                DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155,155)
                             end
                         end)
                     end
@@ -1027,8 +932,8 @@ function lib:Window(text, preset, closebind)
 
                         spawn(function()
                             while wait() do
-                                Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
-                                DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+                                Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                                DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155,155)
                             end
                         end)
                     end
