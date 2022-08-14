@@ -811,7 +811,7 @@ function lib:Window(text, preset, closebind)
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
-
+                DropMain.Size = UDim2.new(0, 363, 0, 42)
 
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
@@ -895,6 +895,7 @@ function lib:Window(text, preset, closebind)
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
+                DropMain.Size = UDim2.new(0, 363, 0, 42)
 
 
                 local function ToggleDrop()
@@ -975,7 +976,6 @@ function lib:Window(text, preset, closebind)
                 end)
 
                 Dropdown:Refresh(list, false)
-                Dropdown:Set(def)
                 return Dropdown
             end
 
@@ -1574,6 +1574,7 @@ function lib:Window(text, preset, closebind)
                 BindFrame.Parent = Section
                 BindFrame.Title.Text = text
                 BindFrame.Name = text .. "element"
+                BindFrame.Size = UDim2.new(0, 363, 0, 42)
 
 
                 BindFrame.InputEnded:Connect(function(Input)
