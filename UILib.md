@@ -1,8 +1,10 @@
-# [Modified] **[VAPE UI Library](https://v3rmillion.net/showthread.php?tid=1098651)**
-**Added In Vape UI Library**
-`Holding Bind, Multi DropDown, Sections, Fixed Toggle Ui, and etc...`
+# [Modified] **[VAPE UI Library](https://v3rmillion.net/showthread.php?tid=1098651)** ← Official Post
 
-## How To Use
+# Information, For those who think we are skidding.
+
+**One of the developers of `xrer#9221`, made a modification of one library, from Dawid, It's a VAPE. We say we don't own this libary, we just edited it and added some cool features! We have inserted a link to the official post about this library in the very top corner. You can also change and modify or add new features! Or...? You can just take all the code and just review it, or take it for your own library!**
+
+We added `Holding Bind, Multi DropDown, Sections, Fixed Toggle Ui, and etc.`.
 
 ## Loadstring
 ```lua
