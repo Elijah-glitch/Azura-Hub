@@ -18,6 +18,12 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Tec
 local win = lib:Window("PREVIEW",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 ```
 
+## Tab
+```lua
+-- tab:Tab(title <string>)
+local tab = win:Tab("Tab")
+```
+
 ## Section
 ```lua
 -- tab:Section(title <string>)
