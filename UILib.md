@@ -6,7 +6,7 @@
 
 We added `Holding Bind, Multi DropDown, Sections, Fixed Toggle Ui, and etc.`.
 
-**[Documentation, still bad, but it will updating sometimes. There is a errors!](https://vaiumabe-athletes.gitbook.io/azura-technology/)**
+**[Documentation, still bad, but it will updating sometimes. There is a errors! DONT USE RN](https://vaiumabe-athletes.gitbook.io/azura-technology/)**
 
 ## Loadstring
 ```lua
