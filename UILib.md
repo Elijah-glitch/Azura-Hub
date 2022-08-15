@@ -6,6 +6,8 @@
 
 We added `Holding Bind, Multi DropDown, Sections, Fixed Toggle Ui, and etc.`.
 
+**[Documentation, still bad, but it will updating sometimes. There is a errors!](https://vaiumabe-athletes.gitbook.io/azura-technology/)**
+
 ## Loadstring
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Azura-Technology/Azura-Hub/main/BetaUpdateVapeUiLib"))()
