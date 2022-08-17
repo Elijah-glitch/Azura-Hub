@@ -1,1 +1,4 @@
-{}
+Blacklist = {
+  -- none
+}
+return Blacklist
