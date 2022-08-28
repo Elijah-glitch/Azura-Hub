@@ -1,4 +1,4 @@
-local lib = { RainbowColorValue = 0, HueSelectionPosition = 0 }
+local lib = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -7,11 +7,26 @@ local Mouse = LocalPlayer:GetMouse()
 local PresetColor = Color3.fromRGB(44, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
 local SectionPreset = game:GetObjects("rbxassetid://7121846230")[1]
-local WhitelistedMouse = { Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2,
-    Enum.UserInputType.MouseButton3 }
-local BlacklistedKeys = { Enum.KeyCode.Unknown, Enum.KeyCode.W, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D,
-    Enum.KeyCode.Up, Enum.KeyCode.Left, Enum.KeyCode.Down, Enum.KeyCode.Right, Enum.KeyCode.Slash, Enum.KeyCode.Tab,
-    Enum.KeyCode.Backspace, Enum.KeyCode.Escape }
+local WhitelistedMouse = {
+    Enum.UserInputType.MouseButton1,
+    Enum.UserInputType.MouseButton2,
+    Enum.UserInputType.MouseButton3
+}
+local BlacklistedKeys = {
+    Enum.KeyCode.Unknown,
+    Enum.KeyCode.W,
+    Enum.KeyCode.A,
+    Enum.KeyCode.S,
+    Enum.KeyCode.D,
+    Enum.KeyCode.Up,
+    Enum.KeyCode.Left,
+    Enum.KeyCode.Down,
+    Enum.KeyCode.Right,
+    Enum.KeyCode.Slash,
+    Enum.KeyCode.Tab,
+    Enum.KeyCode.Backspace,
+    Enum.KeyCode.Escape
+}
 
 local function CheckKey(tab, key)
     for i, v in next, tab do
@@ -52,7 +67,7 @@ local function MakeDraggable(topbarobject, object)
     local function Update(input)
         local Delta = input.Position - DragStart
         local pos =
-        UDim2.new(
+            UDim2.new(
             StartPosition.X.Scale,
             StartPosition.X.Offset + Delta.X,
             StartPosition.Y.Scale,
@@ -81,9 +96,10 @@ local function MakeDraggable(topbarobject, object)
 
     topbarobject.InputChanged:Connect(
         function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or
-                input.UserInputType == Enum.UserInputType.Touch
-            then
+            if
+                input.UserInputType == Enum.UserInputType.MouseMovement or
+                    input.UserInputType == Enum.UserInputType.Touch
+             then
                 DragInput = input
             end
         end
@@ -209,7 +225,7 @@ function lib:Window(text, preset, closebind)
         TweenService:Create(
             NotificationHold,
             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-            { BackgroundTransparency = 0.7 }
+            {BackgroundTransparency = 0.7}
         ):Play()
         wait(0.4)
 
@@ -287,7 +303,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     OkayBtn,
                     TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundColor3 = Color3.fromRGB(37, 37, 37) }
+                    {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
                 ):Play()
             end
         )
@@ -297,7 +313,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     OkayBtn,
                     TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundColor3 = Color3.fromRGB(34, 34, 34) }
+                    {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
                 ):Play()
             end
         )
@@ -317,7 +333,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     NotificationHold,
                     TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundTransparency = 1 }
+                    {BackgroundTransparency = 1}
                 ):Play()
 
                 wait(.3)
@@ -427,12 +443,12 @@ function lib:Window(text, preset, closebind)
                         TweenService:Create(
                             v.TabTitle,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { TextColor3 = Color3.fromRGB(150, 150, 150) }
+                            {TextColor3 = Color3.fromRGB(150, 150, 150)}
                         ):Play()
                         TweenService:Create(
                             TabTitle,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { TextColor3 = Color3.fromRGB(255, 255, 255) }
+                            {TextColor3 = Color3.fromRGB(255, 255, 255)}
                         ):Play()
                     end
                 end
@@ -445,12 +461,14 @@ function lib:Window(text, preset, closebind)
             Section.SectionTitle.Text = text
             Section.SectionTitle.TextColor3 = Color3.fromRGB(155, 155, 155)
 
-            spawn(function()
-                while wait() do
-                    Section.Size = UDim2.new(0.9, 0, 0, Section.UIListLayout.AbsoluteContentSize.Y)
-                    Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+            spawn(
+                function()
+                    while wait() do
+                        Section.Size = UDim2.new(0.9, 0, 0, Section.UIListLayout.AbsoluteContentSize.Y)
+                        Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+                    end
                 end
-            end)
+            )
             local ItemHold = {}
             function ItemHold:Button(text, callback)
                 local Button = Instance.new("TextButton")
@@ -488,7 +506,7 @@ function lib:Window(text, preset, closebind)
                         TweenService:Create(
                             Button,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(37, 37, 37) }
+                            {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
                         ):Play()
                     end
                 )
@@ -498,7 +516,7 @@ function lib:Window(text, preset, closebind)
                         TweenService:Create(
                             Button,
                             TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            { BackgroundColor3 = Color3.fromRGB(34, 34, 34) }
+                            {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
                         ):Play()
                     end
                 )
@@ -604,27 +622,27 @@ function lib:Window(text, preset, closebind)
                             TweenService:Create(
                                 Toggle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(37, 37, 37) }
+                                {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle1,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle2,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle3,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameToggleCircle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
+                                {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}
                             ):Play()
                             FrameToggleCircle:TweenPosition(
                                 UDim2.new(0.587, 0, 0.222000003, 0),
@@ -637,27 +655,27 @@ function lib:Window(text, preset, closebind)
                             TweenService:Create(
                                 Toggle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(34, 34, 34) }
+                                {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle1,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle2,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameToggle3,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameToggleCircle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(50, 50, 50) }
+                                {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}
                             ):Play()
                             FrameToggleCircle:TweenPosition(
                                 UDim2.new(0.127000004, 0, 0.222000003, 0),
@@ -676,27 +694,27 @@ function lib:Window(text, preset, closebind)
                     TweenService:Create(
                         Toggle,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(37, 37, 37) }
+                        {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
                     ):Play()
                     TweenService:Create(
                         FrameToggle1,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundTransparency = 1 }
+                        {BackgroundTransparency = 1}
                     ):Play()
                     TweenService:Create(
                         FrameToggle2,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundTransparency = 1 }
+                        {BackgroundTransparency = 1}
                     ):Play()
                     TweenService:Create(
                         FrameToggle3,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundTransparency = 0 }
+                        {BackgroundTransparency = 0}
                     ):Play()
                     TweenService:Create(
                         FrameToggleCircle,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
+                        {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}
                     ):Play()
                     FrameToggleCircle:TweenPosition(
                         UDim2.new(0.587, 0, 0.222000003, 0),
@@ -712,6 +730,7 @@ function lib:Window(text, preset, closebind)
             end
 
             function ItemHold:Slider(text, min, max, start, inc, callback)
+                local Slider = {Value = start}
                 local dragging = false
                 Value = start
                 local Slider = Instance.new("TextButton")
@@ -782,32 +801,64 @@ function lib:Window(text, preset, closebind)
                 )()
 
                 local function move(Input)
-                    local XSize = math.clamp((Input.Position.X - SlideFrame.AbsolutePosition.X) /
-                        SlideFrame.AbsoluteSize.X, 0, 1)
-                    local Increment = inc and (max / ((max - min) / (inc * 4))) or
-                        (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or
+                    local XSize =
+                        math.clamp((Input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1)
+                    local Increment =
+                        inc and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or
+                        (max >= 25 and max / ((max - min) / 2)) or
                         (max / (max - min))
-                    local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)
-                        ), 0, 1, 0)
-                    TweenService:Create(CurrentValueFrame,
-                        TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = SizeRounded }):
-                        Play()
+                    local SizeRounded =
+                        UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0)
+                    TweenService:Create(
+                        CurrentValueFrame,
+                        TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                        {Size = SizeRounded}
+                    ):Play()
                     local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
                     SliderValue.Text = tostring(Val)
                     Value = Val
                     callback(Value)
                 end
 
-                SlideFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
-                SlideFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
-                game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and
-                    input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
+                SlideFrame.InputBegan:Connect(
+                    function(input)
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            dragging = true
+                        end
+                    end
+                )
+                SlideFrame.InputEnded:Connect(
+                    function(input)
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            dragging = false
+                        end
+                    end
+                )
+                game:GetService("UserInputService").InputChanged:Connect(
+                    function(input)
+                        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                            move(input)
+                        end
+                    end
+                )
+
+                function Slider:Set(val)
+                    local a = tostring(val and (val / max) * (max - min) + min) or 0
+					SliderValue.Text = tostring(a)
+                    CurrentValueFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
+                    Slider.Value = val
+					return callback(Slider.Value)
+				end
+
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+                return Slider
             end
 
             function ItemHold:Dropdown(text, list, def, callback)
-                local Dropdown, DropMain, OptionPreset = { Value = nil, Toggled = false, Options = list },
-                    game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
+                local Dropdown, DropMain, OptionPreset =
+                    {Value = nil, Toggled = false, Options = list},
+                    game:GetObjects("rbxassetid://7027964359")[1],
+                    game:GetObjects("rbxassetid://7021432326")[1]
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
@@ -816,14 +867,23 @@ function lib:Window(text, preset, closebind)
 
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
-                    DropMain.Holder.Size = Dropdown.Toggled and
-                        UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 0)
-                    TweenService:Create(DropMain, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Size = Dropdown.Toggled and UDim2.new(0, 363, 0, 38 +
-                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 32) }):Play()
-                    TweenService:Create(DropMain.Btn.Ico,
+                    DropMain.Holder.Size =
+                        Dropdown.Toggled and UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                        UDim2.new(0, 363, 0, 0)
+                    TweenService:Create(
+                        DropMain,
                         TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Rotation = Dropdown.Toggled and 180 or 0 }):Play()
+                        {
+                            Size = Dropdown.Toggled and
+                                UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                UDim2.new(0, 363, 0, 32)
+                        }
+                    ):Play()
+                    TweenService:Create(
+                        DropMain.Btn.Ico,
+                        TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                        {Rotation = Dropdown.Toggled and 180 or 0}
+                    ):Play()
                     DropMain.Holder.Visible = Dropdown.Toggled
                 end
 
@@ -834,19 +894,23 @@ function lib:Window(text, preset, closebind)
                         Option.ItemText.Text = option
                         Option.ClipsDescendants = true
 
-                        Option.MouseButton1Click:Connect(function()
-                            Dropdown.Value = option
-                            DropMain.Btn.Title.Text = text .. " - " .. option
-                            Ripple(Option)
-                            return callback(Dropdown.Value)
-                        end)
-
-                        spawn(function()
-                            while wait() do
-                                Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                                DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155,155)
+                        Option.MouseButton1Click:Connect(
+                            function()
+                                Dropdown.Value = option
+                                DropMain.Btn.Title.Text = text .. " - " .. option
+                                Ripple(Option)
+                                return callback(Dropdown.Value)
                             end
-                        end)
+                        )
+
+                        spawn(
+                            function()
+                                while wait() do
+                                    Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                                    DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155, 155)
+                                end
+                            end
+                        )
                     end
                 end
 
@@ -855,10 +919,12 @@ function lib:Window(text, preset, closebind)
                         for _, v in pairs(DropMain.Holder:GetChildren()) do
                             if v:IsA "TextButton" then
                                 v:Destroy()
-                                DropMain.Holder.Size = Dropdown.Toggled and
+                                DropMain.Holder.Size =
+                                    Dropdown.Toggled and
                                     UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
                                     UDim2.new(0, 363, 0, 0)
-                                DropMain.Size = Dropdown.Toggled and
+                                DropMain.Size =
+                                    Dropdown.Toggled and
                                     UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
                                     UDim2.new(0, 363, 0, 32)
                             end
@@ -867,9 +933,11 @@ function lib:Window(text, preset, closebind)
                     AddOptions(opts)
                 end
 
-                DropMain.Btn.MouseButton1Click:Connect(function()
-                    ToggleDrop()
-                end)
+                DropMain.Btn.MouseButton1Click:Connect(
+                    function()
+                        ToggleDrop()
+                    end
+                )
 
                 function Dropdown:Set(val)
                     Dropdown.Value = val
@@ -877,13 +945,15 @@ function lib:Window(text, preset, closebind)
                     return callback(Dropdown.Value)
                 end
 
-                spawn(function()
-                    while wait() do
-                        DropMain.Btn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                        DropMain.Btn.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        DropMain.Btn.Ico.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                spawn(
+                    function()
+                        while wait() do
+                            DropMain.Btn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                            DropMain.Btn.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            DropMain.Btn.Ico.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                        end
                     end
-                end)
+                )
 
                 Dropdown:Refresh(list, false)
                 Dropdown:Set(def)
@@ -891,25 +961,35 @@ function lib:Window(text, preset, closebind)
             end
 
             function ItemHold:MultiDropdown(text, list, def, flag, callback)
-                local Dropdown, DropMain, OptionPreset = { Value = {}, Toggled = false, Options = list },
-                    game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
+                local Dropdown, DropMain, OptionPreset =
+                    {Value = {}, Toggled = false, Options = list},
+                    game:GetObjects("rbxassetid://7027964359")[1],
+                    game:GetObjects("rbxassetid://7021432326")[1]
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text
                 DropMain.Name = text .. "element"
                 DropMain.Size = UDim2.new(0, 363, 0, 38)
                 Dropdown.Size = UDim2.new(0, 363, 0, 38)
 
-
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
-                    DropMain.Holder.Size = Dropdown.Toggled and
-                        UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 0)
-                    TweenService:Create(DropMain, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Size = Dropdown.Toggled and UDim2.new(0, 363, 0, 38 +
-                            DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(0, 363, 0, 32) }):Play()
-                    TweenService:Create(DropMain.Btn.Ico,
+                    DropMain.Holder.Size =
+                        Dropdown.Toggled and UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                        UDim2.new(0, 363, 0, 0)
+                    TweenService:Create(
+                        DropMain,
                         TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { Rotation = Dropdown.Toggled and 180 or 0 }):Play()
+                        {
+                            Size = Dropdown.Toggled and
+                                UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
+                                UDim2.new(0, 363, 0, 32)
+                        }
+                    ):Play()
+                    TweenService:Create(
+                        DropMain.Btn.Ico,
+                        TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                        {Rotation = Dropdown.Toggled and 180 or 0}
+                    ):Play()
                     DropMain.Holder.Visible = Dropdown.Toggled
                 end
 
@@ -920,25 +1000,29 @@ function lib:Window(text, preset, closebind)
                         Option.ItemText.Text = option
                         Option.ClipsDescendants = true
 
-                        Option.MouseButton1Click:Connect(function()
-                            if table.find(Dropdown.Value, option) then
-                                table.remove(Dropdown.Value, table.find(Dropdown.Value, option))
-                                DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
-                                callback(Dropdown.Value)
-                            else
-                                table.insert(Dropdown.Value, option)
-                                DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
-                                callback(Dropdown.Value)
+                        Option.MouseButton1Click:Connect(
+                            function()
+                                if table.find(Dropdown.Value, option) then
+                                    table.remove(Dropdown.Value, table.find(Dropdown.Value, option))
+                                    DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
+                                    callback(Dropdown.Value)
+                                else
+                                    table.insert(Dropdown.Value, option)
+                                    DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
+                                    callback(Dropdown.Value)
+                                end
+                                Ripple(Option)
                             end
-                            Ripple(Option)
-                        end)
+                        )
 
-                        spawn(function()
-                            while wait() do
-                                Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                                DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155,155)
+                        spawn(
+                            function()
+                                while wait() do
+                                    Option.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                                    DropMain.Btn.Title.TextColor3 = Color3.fromRGB(155, 155, 155)
+                                end
                             end
-                        end)
+                        )
                     end
                 end
 
@@ -947,10 +1031,12 @@ function lib:Window(text, preset, closebind)
                         for _, v in pairs(DropMain.Holder:GetChildren()) do
                             if v:IsA "TextButton" then
                                 v:Destroy()
-                                DropMain.Holder.Size = Dropdown.Toggled and
+                                DropMain.Holder.Size =
+                                    Dropdown.Toggled and
                                     UDim2.new(0, 363, 0, 6 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
                                     UDim2.new(0, 363, 0, 0)
-                                DropMain.Size = Dropdown.Toggled and
+                                DropMain.Size =
+                                    Dropdown.Toggled and
                                     UDim2.new(0, 363, 0, 38 + DropMain.Holder.Layout.AbsoluteContentSize.Y) or
                                     UDim2.new(0, 363, 0, 32)
                             end
@@ -959,9 +1045,11 @@ function lib:Window(text, preset, closebind)
                     AddOptions(opts)
                 end
 
-                DropMain.Btn.MouseButton1Click:Connect(function()
-                    ToggleDrop()
-                end)
+                DropMain.Btn.MouseButton1Click:Connect(
+                    function()
+                        ToggleDrop()
+                    end
+                )
 
                 function Dropdown:Set(val)
                     Dropdown.Value = val
@@ -969,13 +1057,15 @@ function lib:Window(text, preset, closebind)
                     return callback(Dropdown.Value)
                 end
 
-                spawn(function()
-                    while wait() do
-                        DropMain.Btn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                        DropMain.Btn.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        DropMain.Btn.Ico.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                spawn(
+                    function()
+                        while wait() do
+                            DropMain.Btn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                            DropMain.Btn.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            DropMain.Btn.Ico.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                        end
                     end
-                end)
+                )
 
                 Dropdown:Refresh(list, false)
                 return Dropdown
@@ -1186,7 +1276,7 @@ function lib:Window(text, preset, closebind)
                 HueCorner.Parent = Hue
 
                 HueGradient.Color =
-                ColorSequence.new {
+                    ColorSequence.new {
                     ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)),
                     ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)),
                     ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)),
@@ -1248,7 +1338,7 @@ function lib:Window(text, preset, closebind)
                     end
                 )
 
-                local function UpdateColorPicker(nope)
+                local function UpdateColorPicker()
                     BoxColor.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
                     Color.BackgroundColor3 = Color3.fromHSV(ColorH, 1, 1)
 
@@ -1256,16 +1346,15 @@ function lib:Window(text, preset, closebind)
                 end
 
                 ColorH =
-                1 -
+                    1 -
                     (math.clamp(HueSelection.AbsolutePosition.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
                         Hue.AbsoluteSize.Y)
                 ColorS =
-                (math.clamp(ColorSelection.AbsolutePosition.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
+                    (math.clamp(ColorSelection.AbsolutePosition.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
                     Color.AbsoluteSize.X)
                 ColorV =
-                1 -
-                    (
-                    math.clamp(ColorSelection.AbsolutePosition.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
+                    1 -
+                    (math.clamp(ColorSelection.AbsolutePosition.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
                         Color.AbsoluteSize.Y)
 
                 BoxColor.BackgroundColor3 = preset
@@ -1284,13 +1373,13 @@ function lib:Window(text, preset, closebind)
                             end
 
                             ColorInput =
-                            RunService.RenderStepped:Connect(
+                                RunService.RenderStepped:Connect(
                                 function()
                                     local ColorX =
-                                    (math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
+                                        (math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
                                         Color.AbsoluteSize.X)
                                     local ColorY =
-                                    (math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
+                                        (math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
                                         Color.AbsoluteSize.Y)
 
                                     ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
@@ -1326,10 +1415,10 @@ function lib:Window(text, preset, closebind)
                             end
 
                             HueInput =
-                            RunService.RenderStepped:Connect(
+                                RunService.RenderStepped:Connect(
                                 function()
                                     local HueY =
-                                    (math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
+                                        (math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
                                         Hue.AbsoluteSize.Y)
 
                                     HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
@@ -1368,22 +1457,22 @@ function lib:Window(text, preset, closebind)
                             TweenService:Create(
                                 FrameRainbowToggle1,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggle2,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggle3,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggleCircle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
+                                {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}
                             ):Play()
                             FrameRainbowToggleCircle:TweenPosition(
                                 UDim2.new(0.587, 0, 0.222000003, 0),
@@ -1412,22 +1501,22 @@ function lib:Window(text, preset, closebind)
                             TweenService:Create(
                                 FrameRainbowToggle1,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggle2,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 0 }
+                                {BackgroundTransparency = 0}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggle3,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundTransparency = 1 }
+                                {BackgroundTransparency = 1}
                             ):Play()
                             TweenService:Create(
                                 FrameRainbowToggleCircle,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                { BackgroundColor3 = Color3.fromRGB(50, 50, 50) }
+                                {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}
                             ):Play()
                             FrameRainbowToggleCircle:TweenPosition(
                                 UDim2.new(0.127000004, 0, 0.222000003, 0),
@@ -1466,7 +1555,9 @@ function lib:Window(text, preset, closebind)
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             end
 
-            function ItemHold:Label(text)
+            function ItemHold:Label(text, color)
+                local Label = {}
+                Colorr = color or Color3.fromRGB(255,255,255)
                 local Label = Instance.new("TextButton")
                 local LabelCorner = Instance.new("UICorner")
                 local LabelTitle = Instance.new("TextLabel")
@@ -1493,10 +1584,16 @@ function lib:Window(text, preset, closebind)
                 LabelTitle.Size = UDim2.new(0, 187, 0, 42)
                 LabelTitle.Font = Enum.Font.Gotham
                 LabelTitle.Text = text
-                LabelTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+                LabelTitle.TextColor3 = color
                 LabelTitle.TextSize = 14.000
                 LabelTitle.TextXAlignment = Enum.TextXAlignment.Left
                 Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+
+                function Label:Set(totext, tocolor)
+                    LabelTitle.Text = totext
+                    LabelTitle.TextColor3 = tocolor
+                end
+                return Label
             end
 
             function ItemHold:Textbox(text, disapper, callback)
@@ -1565,7 +1662,8 @@ function lib:Window(text, preset, closebind)
             end
 
             function ItemHold:Bind(text, preset, holdmode, callback)
-                local Bind, BindFrame = { Value, Binding = false, Holding = false },
+                local Bind, BindFrame =
+                    {Value, Binding = false, Holding = false},
                     game:GetObjects("rbxassetid://7126874744")[1]
                 BindFrame.Parent = Section
                 BindFrame.Title.Text = text
@@ -1573,49 +1671,65 @@ function lib:Window(text, preset, closebind)
                 BindFrame.Size = UDim2.new(0, 363, 0, 32)
                 Bind.Size = UDim2.new(0, 363, 0, 38)
 
-
-                BindFrame.InputEnded:Connect(function(Input)
-                    if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if Bind.Binding then return end
-                        Bind.Binding = true
-                        BindFrame.BText.Text = "..."
-                    end
-                end)
-
-                UserInputService.InputBegan:Connect(function(Input)
-                    if UserInputService:GetFocusedTextBox() then return end
-                    if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
-                        if holdmode then
-                            Holding = true
-                            callback(Holding)
-                        else
-                            callback()
-                        end
-                    elseif Bind.Binding then
-                        local Key
-                        pcall(function()
-                            if not CheckKey(BlacklistedKeys, Input.KeyCode) then
-                                Key = Input.KeyCode
+                BindFrame.InputEnded:Connect(
+                    function(Input)
+                        if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            if Bind.Binding then
+                                return
                             end
-                        end)
-                        pcall(function()
-                            if CheckKey(WhitelistedMouse, Input.UserInputType) and not Key then
-                                Key = Input.UserInputType
-                            end
-                        end)
-                        Key = Key or Bind.Value
-                        Bind:Set(Key)
-                    end
-                end)
-
-                UserInputService.InputEnded:Connect(function(Input)
-                    if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value then
-                        if holdmode and Holding then
-                            Holding = false
-                            callback(Holding)
+                            Bind.Binding = true
+                            BindFrame.BText.Text = "..."
                         end
                     end
-                end)
+                )
+
+                UserInputService.InputBegan:Connect(
+                    function(Input)
+                        if UserInputService:GetFocusedTextBox() then
+                            return
+                        end
+                        if
+                            (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and
+                                not Bind.Binding
+                         then
+                            if holdmode then
+                                Holding = true
+                                callback(Holding)
+                            else
+                                callback()
+                            end
+                        elseif Bind.Binding then
+                            local Key
+                            pcall(
+                                function()
+                                    if not CheckKey(BlacklistedKeys, Input.KeyCode) then
+                                        Key = Input.KeyCode
+                                    end
+                                end
+                            )
+                            pcall(
+                                function()
+                                    if CheckKey(WhitelistedMouse, Input.UserInputType) and not Key then
+                                        Key = Input.UserInputType
+                                    end
+                                end
+                            )
+                            Key = Key or Bind.Value
+                            Bind:Set(Key)
+                        end
+                    end
+                )
+
+                UserInputService.InputEnded:Connect(
+                    function(Input)
+                        if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value then
+                            if holdmode and Holding then
+                                Holding = false
+                                callback(Holding)
+                            end
+                        end
+                    end
+                )
 
                 function Bind:Set(key)
                     self.Binding = false
@@ -1624,13 +1738,15 @@ function lib:Window(text, preset, closebind)
                     BindFrame.BText.Text = self.Value
                 end
 
-                spawn(function()
-                    while wait() do
-                        BindFrame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                        BindFrame.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        BindFrame.BText.TextColor3 = Color3.fromRGB(255, 255, 255)
+                spawn(
+                    function()
+                        while wait() do
+                            BindFrame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                            BindFrame.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            BindFrame.BText.TextColor3 = Color3.fromRGB(255, 255, 255)
+                        end
                     end
-                end)
+                )
 
                 Bind:Set(preset)
                 return Bind
